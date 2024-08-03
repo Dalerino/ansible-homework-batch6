@@ -1,21 +1,23 @@
 - hosts: all
   become: yes
   tasks:
+
   - name: Update apt package
     apt:
       update_cache: yes
 
-  - name: Install the following packages
-    ansible.builtin.apt:
-      pkg:
-        - unzip
-        - mariadb-client
-        - mariadb-server
+  - name: Install unzip
+    apt:
+      name: unzip
       state: present
-      update_cache: yes
+ 
+  - name: Install mariadb
+    apt:
+      name: mariadb-server
+      state: present
 
-  - name: Start mariadb by making it permanent
-    ansible.builtin.service:
+  - name: Start and enable mariadb
+    service:
       name: mariadb
       state: started
       enabled: yes
