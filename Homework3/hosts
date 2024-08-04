@@ -1,0 +1,1 @@
+amazon-vm ansible_host=3.148.105.59 ansible_user=ec2-user
