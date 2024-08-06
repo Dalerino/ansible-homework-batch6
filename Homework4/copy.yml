@@ -1,0 +1,10 @@
+- hosts: all
+  become: yes
+  tasks:
+  - name: Copy files to remote machine
+    ansible.builtin.copy:
+      src: /home/ubuntu/ansible-homework-batch6/Homework4/.
+      dest: ./
+      owner: tim
+      group: devops
+      mode: '0755'
